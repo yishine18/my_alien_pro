@@ -63,12 +63,13 @@ def update_bullets(ai_settings,screen,ship,aliens,bullets):
 	for bullet in bullets.copy():
 		if bullet.rect.bottom <= 0:
 			bullets.remove(bullet)
-	collisions = pygame.sprite.groupcollide(bullets,aliens,True,True)
+	# collisions = pygame.sprite.groupcollide(bullets,aliens,True,True)
 
-	if len(aliens) == 0:
-		bullets.empty()
-		create_fleet(ai_settings,screen,ship,aliens)
-	
+	# if len(aliens) == 0:
+	# 	bullets.empty()
+	# 	create_fleet(ai_settings,screen,ship,aliens)
+
+	check_bullet_alien_collisions(ai_settings,screen,ship,aliens,bullets)
 
 
 	
@@ -131,6 +132,14 @@ def update_aliens(ai_settings,aliens):
 	check_fleet_edges(ai_settings,aliens)
 	aliens.update()
 
+
+def check_bullet_alien_collisions(ai_settings,screen,ship,aliens,bullets):
+
+	collisions = pygame.sprite.groupcollide(bullets,aliens,True,True)
+
+	if len(aliens) == 0:
+		bullets.empty()
+		create_fleet(ai_settings,screen,ship,aliens)
 
 
 
