@@ -7,6 +7,7 @@ from ship import Ship
 import game_functions as gf
 from pygame.sprite import Group
 from game_stats import GameStats
+from button import Button
 
 # from alien import Alien
 
@@ -19,6 +20,8 @@ def run_game():
 	# screen = pygame.display.set_mode((1200,800))
 	screen = pygame.display.set_mode( (ai_settings.screen_width, ai_settings.screen_height))
 	pygame.display.set_caption("Alien Invasion")
+
+	play_button = Button(ai_settings,screen,"Play")
 
 	stats = GameStats(ai_settings)
 
@@ -46,7 +49,7 @@ def run_game():
 		# if len(bullets) > 0:
 		# 	print("bullets counts = ",len(bullets))
 
-		gf.update_screen(ai_settings,screen,ship,aliens,bullets)
+		gf.update_screen(ai_settings,screen,stats,ship,aliens,bullets,play_button)
 		# for event in pygame.event.get():
 		# 	if event.type == pygame.QUIT:
 		# 		sys.exit()
