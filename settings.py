@@ -18,7 +18,7 @@ class Settings():
 		self.fleet_direction = 1 
 		#fleet_direction = -1  表示左移
 
-		self.ship_limit = 3
+		self.ship_limit = 2
 		
 
 		
