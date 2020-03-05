@@ -19,7 +19,8 @@ def run_game():
 
     ai_settings = Settings()
     # screen = pygame.display.set_mode((1200,800))
-    screen = pygame.display.set_mode((ai_settings.screen_width, ai_settings.screen_height))
+    screen = pygame.display.set_mode(
+        (ai_settings.screen_width, ai_settings.screen_height))
     pygame.display.set_caption("Alien Invasion")
 
     play_button = Button(ai_settings, screen, "Play")
@@ -37,7 +38,8 @@ def run_game():
     # alien = Alien(ai_settings,screen)
 
     while True:
-        gf.check_events(ai_settings, screen, stats, play_button, ship, aliens, bullets)
+        gf.check_events(ai_settings, screen, stats,
+                        play_button, ship, aliens, bullets)
         if stats.game_active:
             ship.update()
             gf.update_bullets(ai_settings, screen, ship, aliens, bullets)
@@ -50,7 +52,8 @@ def run_game():
         # if len(bullets) > 0:
         # 	print("bullets counts = ",len(bullets))
 
-        gf.update_screen(ai_settings, screen, stats, sb, ship, aliens, bullets, play_button)
+        gf.update_screen(ai_settings, screen, stats, sb,
+                         ship, aliens, bullets, play_button)
     # for event in pygame.event.get():
     # 	if event.type == pygame.QUIT:
     # 		sys.exit()
